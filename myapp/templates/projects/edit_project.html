@@ -1,0 +1,16 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+
+<h1 class="form-title">Edit Project</h1>
+<form class="form" method="post">
+    {% csrf_token %}
+    <div class="form-group">
+        <label for="name">Project Name: </label>
+        <input type="text" value="{{ project.name }}" name="name" placeholder="Ingresa el nombre del nuevo proyecto" class="form-control">
+    </div>
+    <button type="submit" class="btn">Guardar</button>
+</form>
+
+{% endblock %}
+ 

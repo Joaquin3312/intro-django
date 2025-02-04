@@ -1,0 +1,13 @@
+{% extends "layouts/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<h1>WELCOME!</h1>
+<div style="text-align: center;">
+    <img src="{% static 'django.png' %}" width="100px">
+</div>
+<p style="text-align: center; background-color: rgb(212, 209, 205); border-radius: 18px; padding: 15px; ">{% lorem 2 b random %}</p>
+
+{% endblock %} 

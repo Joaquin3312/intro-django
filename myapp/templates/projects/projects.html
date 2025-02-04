@@ -1,0 +1,42 @@
+{% extends "layouts/base.html" %}
+
+{% block content %}
+<body>
+    <div class="container">
+    <header>
+        <h1>My Projects</h1>
+    </header>
+    <main>
+        {% comment %} Agregar un proyecto:  {% endcomment %}
+        <div class="btn">
+            <a href="{% url 'create_project' %}" class="btn-link">Add Project. ➕</a>
+        </div>
+        <section class="tasks-section">
+            <h2>Project List</h2>
+            <ul>
+                {% for project in projects %}
+                <li>
+                    <a class="project-name" href="{% url 'detail_project' project.id %}">
+                        <h3>{{ project.name }}</h3>
+                    </a>
+                    <div class="actions">
+                        <!-- ELIMINAR UN PROJECT: -->
+                        <form action="{% url 'delete_project' project.id %}" method="post" style="display:inline;">
+                            {% csrf_token %}
+                            <button type="submit">Delete</button>
+                        </form>
+                        <a href="{% url 'edit_project' project.id %}">Edit</a>
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 My Projects</p>
+    </footer>
+    </div>
+</body>
+</html>
+
+{% endblock %}
